@@ -1,14 +1,14 @@
-import crypto from "crypto";
-import sendEmail from "../utils/sendEmail";
-import catchAsync from "../utils/catchAsync";
-import CustomError from "../utils/customError";
-import {
+const crypto = require("crypto");
+const sendEmail = require("../utils/sendEmail");
+const catchAsync = require("../utils/catchAsync");
+const CustomError = require("../utils/customError");
+const {
   createAcessToken,
   createRefreshToken,
   verifyToken,
-} from "../utils/jwt";
+} = require("../utils/jwt");
 
-import userService from "../services/user.service";
+const userService = require("../services/user.service");
 
 const signup = catchAsync(async (req, res, next) => {
   const { username, email, password, confirmPassword } = req.body;
@@ -193,4 +193,11 @@ const resetPassword = catchAsync(async (req, res, next) => {
     });
 });
 
-export { signup, login, logout, renewToken, forgotPassword, resetPassword };
+module.exports = {
+  signup,
+  login,
+  logout,
+  renewToken,
+  forgotPassword,
+  resetPassword,
+};

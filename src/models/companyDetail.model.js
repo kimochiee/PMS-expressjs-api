@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+const validator = require("validator");
 
 const companySchema = new mongoose.Schema(
   {
@@ -11,6 +12,7 @@ const companySchema = new mongoose.Schema(
     },
     email: {
       type: String,
+      validate: [validator.isEmail, "Please provide a valid email"],
     },
     address: {
       type: String,
@@ -28,6 +30,7 @@ const companySchema = new mongoose.Schema(
       },
       email: {
         type: String,
+        validate: [validator.isEmail, "Please provide a valid email"],
       },
       address: {
         type: String,
@@ -38,4 +41,4 @@ const companySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("CompanyDetail", companySchema);
+module.exports = mongoose.model("CompanyDetail", companySchema);

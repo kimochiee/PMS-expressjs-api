@@ -1,5 +1,5 @@
-import User from "../models/user.model";
-import APIFeatures from "../utils/apiFeatures";
+const User = require("../models/user.model");
+const APIFeatures = require("../utils/apiFeatures");
 
 const addUser = (data) => {
   return new Promise(async (resolve, reject) => {
@@ -97,7 +97,7 @@ const updateUserAvatar = (id, data) => {
   });
 };
 
-export default {
+module.exports = {
   addUser,
   findUserById,
   findUserWithConditions,

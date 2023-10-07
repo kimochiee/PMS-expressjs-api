@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const permissionSchema = new mongoose.Schema(
   {
@@ -22,4 +22,4 @@ const permissionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Permission", permissionSchema);
+module.exports = mongoose.model("Permission", permissionSchema);

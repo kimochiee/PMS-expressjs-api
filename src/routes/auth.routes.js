@@ -1,14 +1,14 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import {
+const {
   signup,
   login,
   logout,
   renewToken,
   forgotPassword,
   resetPassword,
-} from "../controllers/auth.controller";
+} = require("../controllers/auth.controller");
 
 /**
  * @openapi
@@ -163,4 +163,4 @@ router.post("/forgot_password", forgotPassword);
  */
 router.post("/reset_password/:resetPasswordToken", resetPassword);
 
-export default router;
+module.exports = router;

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 // import bcrypt from "bcryptjs";
 // import validator from "validator";
 // import crypto from "crypto";
@@ -46,6 +46,10 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
     // refreshToken: String,
     // passwordChangeAt: Date,
     // resetPasswordToken: String,
@@ -90,4 +94,4 @@ const userSchema = new mongoose.Schema(
 //   return resetToken;
 // };
 
-export default mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);

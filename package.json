@@ -1,19 +1,14 @@
 {
-  "name": "expressjs-starter",
+  "name": "PMS",
   "version": "1.0.0",
-  "description": "a expressjs starter to make a rest api",
+  "description": "PMS",
   "main": "index.js",
   "engines": {
     "node": "16.x"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --exec babel-node index.js",
-    "dev": "nodemon --exec babel-node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kimochiee/Expressjs-starter.git"
+    "start": "node index.js",
+    "dev": "nodemon  index.js"
   },
   "keywords": [
     "expressjs",
@@ -21,14 +16,7 @@
   ],
   "author": "kimochiee",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kimochiee/Expressjs-starter/issues"
-  },
-  "homepage": "https://github.com/kimochiee/Expressjs-starter#readme",
   "devDependencies": {
-    "@babel/core": "^7.22.19",
-    "@babel/node": "^7.22.19",
-    "@babel/preset-env": "^7.22.15",
     "nodemon": "^3.0.1"
   },
   "dependencies": {

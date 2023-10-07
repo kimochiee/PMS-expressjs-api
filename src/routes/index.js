@@ -1,20 +1,22 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import errorHandler from "../middlewares/error.middleware";
-import CustomError from "../utils/customError";
+const errorHandler = require("../middlewares/error.middleware");
+const CustomError = require("../utils/customError");
 
-import authRouter from "./auth.routes";
-import adminRouter from "./admin.routes";
-import userRouter from "./user.routes";
+// const authRouter  = require("./auth.routes");
+// const adminRouter  = require("./admin.routes");
+// const userRouter  = require("./user.routes");
+const slotRouter = require("./slot.routes");
 
-router.use("/auth", authRouter);
-router.use("/admin", adminRouter);
-router.use("/user", userRouter);
+// router.use("/auth", authRouter);
+// router.use("/admin", adminRouter);
+// router.use("/user", userRouter);
+router.use("/slots", slotRouter);
 
 router.all("*", (req, res) => {
   throw new CustomError(`Can't find ${req.originalUrl} on this server!`, 404);
 });
 router.use(errorHandler);
 
-export default router;
+module.exports = router;

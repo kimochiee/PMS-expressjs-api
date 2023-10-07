@@ -1,5 +1,5 @@
-import swaggerJSDoc from "swagger-jsdoc";
-import swaggerUi from "swagger-ui-express";
+const swaggerDocs = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 const options = {
   definition: {
@@ -41,4 +41,4 @@ const swaggerDocs = (app, port) => {
   app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
-export default swaggerDocs;
+module.exports = swaggerDocs;

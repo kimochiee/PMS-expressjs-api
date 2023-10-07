@@ -1,14 +1,14 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import { authenticateUser } from "../middlewares/auth.middleware";
-import uploadCloud from "../config/cloudinary";
-import {
+const { authenticateUser } = require("../middlewares/auth.middleware");
+const uploadCloud = require("../config/cloudinary");
+const {
   getCurrentUser,
   updateMe,
   uploadAvatar,
   updateMyPassword,
-} from "../controllers/user.controller";
+} = require("../controllers/user.controller");
 
 router.use(authenticateUser);
 
@@ -129,4 +129,4 @@ router.patch("/upload_avatar", uploadCloud.single("image"), uploadAvatar);
  */
 router.patch("/update_my_password", updateMyPassword);
 
-export default router;
+module.exports = router;

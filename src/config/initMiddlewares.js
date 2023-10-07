@@ -1,7 +1,7 @@
-import "dotenv/config";
-import express from "express";
-import path from "path";
-import cookieParser from "cookie-parser";
+require("dotenv").config();
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
 
 module.exports = (app) => {
   app.use(function (req, res, next) {

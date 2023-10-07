@@ -1,7 +1,7 @@
-import nodemailerConfig from "../config/nodemailer";
-import nodemailer from "nodemailer";
+const nodemailerConfig = require("../config/nodemailer");
+const nodemailer = require("nodemailer");
 
-export default async (options) => {
+module.exports = async (options) => {
   await nodemailer.createTestAccount();
 
   const transporter = nodemailer.createTransport(nodemailerConfig);

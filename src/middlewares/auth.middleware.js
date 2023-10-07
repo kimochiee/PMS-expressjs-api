@@ -1,6 +1,6 @@
-import CustomError from "../utils/customError";
-import catchAsync from "../utils/catchAsync";
-import { verifyToken } from "../utils/jwt";
+const CustomError = require("../utils/customError");
+const catchAsync = require("../utils/catchAsync");
+const { verifyToken } = require("../utils/jwt");
 
 const authenticateUser = catchAsync(async (req, res, next) => {
   const { refreshToken } = req.cookies;
@@ -42,4 +42,4 @@ const authorizeUser = (...roles) => {
   };
 };
 
-export { authenticateUser, authorizeUser };
+module.exports = { authenticateUser, authorizeUser };

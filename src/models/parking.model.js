@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const parkingSchema = new mongoose.Schema(
   {
@@ -8,11 +8,11 @@ const parkingSchema = new mongoose.Schema(
     },
     checkIn: {
       type: String,
-      required: [true, "Check In time is required"],
+      required: [true, "CheckIn time is required"],
     },
     checkOut: {
       type: String,
-      required: [true, "Check Out time is required"],
+      required: [true, "CheckOut time is required"],
     },
     category: {
       type: String,
@@ -60,4 +60,4 @@ const parkingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Parking", parkingSchema);
+module.exports = mongoose.model("Parking", parkingSchema);

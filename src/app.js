@@ -1,16 +1,16 @@
-import express from "express";
+const express = require("express");
 const app = express();
 
-import connectDB from "./config/connectDB";
-import initMiddlewares from "./config/initMiddlewares";
-import swaggerDocs from "./config/swagger";
+const connectDB = require("./config/connectDB");
+const initMiddlewares = require("./config/initMiddlewares");
+// const swaggerDocs = require("./config/swagger");
 
-import initRouter from "./routes/index";
+const initRouter = require("./routes/index");
 
 connectDB();
 initMiddlewares(app);
 
 app.use("/api/v1", initRouter);
-swaggerDocs(app, 8000);
+// swaggerDocs(app, 8000);
 
-export default app;
+module.exports = app;

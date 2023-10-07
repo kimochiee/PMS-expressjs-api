@@ -1,17 +1,10 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const slotNameSchema = new mongoose.Schema({
   slotName: {
     type: String,
     unique: true,
   },
-  isAvailable: {
-    type: Boolean,
-    default: false,
-  },
-});
-
-const capacitySchema = new mongoose.Schema({
   vehicleType: {
     type: String,
     required: [true, "Vehicle type is required"],
@@ -19,6 +12,9 @@ const capacitySchema = new mongoose.Schema({
   isAvailable: {
     type: Boolean,
     default: false,
+  },
+  capacity: {
+    type: Number,
   },
 });
 
@@ -33,8 +29,11 @@ const slotSchema = new mongoose.Schema(
       required: [true, "Wing name is required"],
     },
     slots: [slotNameSchema],
-    capacity: [capacitySchema],
     isFullyOccupied: {
+      type: Boolean,
+      default: false,
+    },
+    isActive: {
       type: Boolean,
       default: false,
     },
@@ -42,4 +41,4 @@ const slotSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Slot", slotSchema);
+module.exports = mongoose.model("Slot", slotSchema);

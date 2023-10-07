@@ -1,17 +1,17 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import {
+const {
   authenticateUser,
   authorizeUser,
-} from "../middlewares/auth.middleware";
-import {
+} = require("../middlewares/auth.middleware");
+const {
   getAllUsers,
   createUser,
   getSingleUser,
   updateUser,
   deleteUser,
-} from "../controllers/user.controller";
+} = require("../controllers/user.controller");
 
 router.use(authenticateUser);
 router.use(authorizeUser("admin"));
@@ -171,4 +171,4 @@ router.patch("/users/:userId", updateUser);
  */
 router.delete("/users/:userId", deleteUser);
 
-export default router;
+module.exports = router;

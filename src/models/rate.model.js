@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const rateSchema = new mongoose.Schema(
   {
@@ -28,4 +28,4 @@ const rateSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Rate", rateSchema);
+module.exports = mongoose.model("Rate", rateSchema);

@@ -1,4 +1,4 @@
-import CustomError from "../utils/customError";
+const CustomError = require("../utils/customError");
 
 const handleCastErrorDB = (err) => {
   const message = `Invalid ${err.path}: ${err.value}.`;
@@ -19,7 +19,7 @@ const handleValidationErrorDB = (err) => {
   return new CustomError(message, 400);
 };
 
-export default (err, req, res, next) => {
+module.exports = (err, req, res, next) => {
   console.log(err);
   let error = { ...err };
   error.statusCode = err.statusCode || 500;

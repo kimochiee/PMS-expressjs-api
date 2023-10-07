@@ -1,9 +1,9 @@
-import catchAsync from "../utils/catchAsync";
-import CustomError from "../utils/customError";
-import { createAcessToken, createRefreshToken } from "../utils/jwt";
-import filterObj from "../utils/filterObj";
+const catchAsync = require("../utils/catchAsync");
+const CustomError = require("../utils/customError");
+const { createAcessToken, createRefreshToken } = require("../utils/jwt");
+const filterObj = require("../utils/filterObj");
 
-import userService from "../services/user.service";
+const userService = require("../services/user.service");
 
 //user
 const getCurrentUser = catchAsync(async (req, res, next) => {
@@ -148,7 +148,7 @@ const deleteUser = catchAsync(async (req, res, next) => {
     .json({ status: "success", msg: "Delete user successfully", user });
 });
 
-export {
+module.exports = {
   getCurrentUser,
   updateMe,
   uploadAvatar,

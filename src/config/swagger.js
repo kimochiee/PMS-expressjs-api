@@ -1,4 +1,4 @@
-const swaggerDocs = require("swagger-jsdoc");
+const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
 const options = {

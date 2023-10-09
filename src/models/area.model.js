@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const slotNameSchema = new mongoose.Schema({
+const slotSchema = new mongoose.Schema({
   slotName: {
     type: String,
     unique: true,
@@ -18,7 +18,7 @@ const slotNameSchema = new mongoose.Schema({
   },
 });
 
-const slotSchema = new mongoose.Schema(
+const areaSchema = new mongoose.Schema(
   {
     floorName: {
       type: String,
@@ -28,7 +28,7 @@ const slotSchema = new mongoose.Schema(
       type: String,
       required: [true, "Wing name is required"],
     },
-    slots: [slotNameSchema],
+    slots: [slotSchema],
     isFullyOccupied: {
       type: Boolean,
       default: false,
@@ -41,4 +41,4 @@ const slotSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Slot", slotSchema);
+module.exports = mongoose.model("Area", areaSchema);

@@ -11,13 +11,14 @@ const {
 const userService = require("../services/user.service");
 
 const signup = catchAsync(async (req, res, next) => {
-  const { username, email, password, confirmPassword } = req.body;
+  const { username, email, password, confirmPassword, role, mobile, isActive } =
+    req.body;
 
   if (password != confirmPassword) {
     throw new CustomError("Password must be the same", 400);
   }
 
-  const userData = { username, email, password };
+  const userData = { username, email, password, role, mobile, isActive };
 
   const result = await userService.addUser(userData);
 

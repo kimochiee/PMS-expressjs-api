@@ -23,9 +23,9 @@ const parkingSchema = new mongoose.Schema(
     rate: {
       type: Number,
     },
-    slot: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "slot",
+    area: {
+      type: mongoose.Types.ObjectId,
+      ref: "Area",
       required: true,
     },
     totalHours: {

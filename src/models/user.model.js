@@ -40,7 +40,8 @@ const userSchema = new mongoose.Schema(
     },
     identityProof: {
       type: String,
-      required: true,
+      // required: true,
+      default: "",
     },
     isProfileCompleted: {
       type: Boolean,

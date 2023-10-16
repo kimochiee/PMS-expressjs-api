@@ -8,6 +8,12 @@ const {
   updatePermission,
   deletePermission,
 } = require("../controllers/permission.controller");
+const {
+  authenticateUser,
+  authorizeUser,
+} = require("../middlewares/auth.middleware");
+
+router.use(authenticateUser, authorizeUser("Super Admin"));
 
 router.get("/", getPermissions);
 router.post("/", createPermission);

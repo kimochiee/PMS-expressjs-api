@@ -20,18 +20,44 @@ const signup = catchAsync(async (req, res, next) => {
 
   const userData = { username, email, password, role, mobile, isActive };
 
-  const result = await userService.addUser(userData);
+  const user = await userService.addUser(userData);
 
-  res.status(201).json(result);
+  if (!user) {
+    throw new CustomError("Fail to sign up", 400);
+  }
+
+  const accessToken = createAcessToken(user._id, user.role);
+  const refreshToken = createRefreshToken(user._id);
+
+  user.refreshToken = refreshToken;
+  await user.save();
+
+  res
+    .cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      secure: process.env.NODE_ENV === "production" ? true : false,
+    })
+    .status(201)
+    .json({
+      status: "success",
+      msg: "Create user successfully",
+      user,
+      token: accessToken,
+    });
 });
 
 const login = catchAsync(async (req, res, next) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
-  const user = await userService.findUserWithConditions({ email });
+  if (!username || !password) {
+    throw new CustomError("Please provide username and password");
+  }
+
+  const user = await userService.findUserWithConditions({ username });
 
   if (!user || !(await user.comparePassword(password))) {
-    throw new CustomError("Email or password is incorrect", 400);
+    throw new CustomError("Username or password is incorrect", 400);
   }
 
   const accessToken = createAcessToken(user._id, user.role);

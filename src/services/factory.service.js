@@ -48,6 +48,18 @@ const getOne = (Model, id, populateOptions) => {
   });
 };
 
+const getOneByOptions = (Model, options) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const document = await Model.findOne(options);
+
+      resolve(document);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 const updateOne = (Model, id, data) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -75,4 +87,11 @@ const deleteOne = (Model, id) => {
   });
 };
 
-module.exports = { deleteOne, updateOne, createOne, getOne, getAll };
+module.exports = {
+  deleteOne,
+  updateOne,
+  createOne,
+  getOne,
+  getOneByOptions,
+  getAll,
+};

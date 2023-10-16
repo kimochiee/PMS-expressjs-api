@@ -14,7 +14,7 @@ const {
 } = require("../controllers/user.controller");
 
 router.use(authenticateUser);
-router.use(authorizeUser("admin"));
+router.use(authorizeUser("Super Admin"));
 
 /**
  * @openapi

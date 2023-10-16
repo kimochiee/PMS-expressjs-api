@@ -3,7 +3,6 @@ const CustomError = require("../utils/customError");
 
 const Role = require("../models/role.model");
 
-// const roleService = require("../services/role.service");
 const factoryService = require("../services/factory.service");
 
 const getRoles = catchAsync(async (req, res, next) => {

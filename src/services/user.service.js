@@ -4,13 +4,9 @@ const APIFeatures = require("../utils/apiFeatures");
 const addUser = (data) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await User.create(data);
+      const user = await User.create(data);
 
-      resolve({
-        status: response ? "success" : "fail",
-        msg: response ? "Create user successfully" : "Fail to create user",
-        user: response ? response : null,
-      });
+      resolve(user);
     } catch (error) {
       reject(error);
     }

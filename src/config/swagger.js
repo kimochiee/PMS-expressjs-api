@@ -41,7 +41,7 @@ const swaggerDocs = (app, port) => {
   app.get(
     "/",
     (req, res, next) => {
-      res.setHeader("Content-Type", "text/html");
+      res.setHeader("Content-Type", "text/css");
       next();
     },
     swaggerUi.setup(swaggerSpec)

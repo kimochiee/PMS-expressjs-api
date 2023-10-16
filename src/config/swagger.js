@@ -8,7 +8,7 @@ const options = {
     info: {
       title: "Expressjs starter",
       version: "1.0.0",
-      description: "A basic Rest-API for starter",
+      description: "Parking management system REST-API",
       contact: {
         name: "Nguyen Quan - kimochiee",
         url: "https://github.com/kimochiee",
@@ -28,17 +28,17 @@ const options = {
     servers: [
       {
         url: "http://localhost:8000",
-        url: "https://expressjs-starter.onrender.com",
       },
     ],
   },
-  apis: ["./src/routes/*.js"],
+  // apis: ["./src/routes/*.js"],
+  apis: ["./routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
 
 const swaggerDocs = (app, port) => {
-  app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
 module.exports = swaggerDocs;

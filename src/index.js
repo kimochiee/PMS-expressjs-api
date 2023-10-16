@@ -1,5 +1,5 @@
 require("dotenv").config();
-const app = require("./src/app");
+const app = require("./app");
 
 process.on("unhandledRejection", (err) => {
   console.log(err.name, err.message);

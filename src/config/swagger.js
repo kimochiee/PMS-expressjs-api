@@ -21,7 +21,7 @@ const options = {
           type: "http",
           scheme: "bearer",
           bearerFormat: "JWT",
-          value: "Bearer <JWT token here",
+          value: "Bearer <JWT token here>",
         },
       },
     },
@@ -31,8 +31,7 @@ const options = {
       },
     ],
   },
-  // apis: ["./src/routes/*.js"],
-  apis: ["./routes/*.js"],
+  apis: ["./src/routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 
@@ -13,4 +14,9 @@ initMiddlewares(app);
 app.use("/api/v1", initRouter);
 swaggerDocs(app, 8000);
 
-module.exports = app;
+const port = 8000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+// module.exports = app;

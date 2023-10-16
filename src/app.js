@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const pathToSwaggerUi = require("swagger-ui-dist").absolutePath();
 const app = express();
 
 const connectDB = require("./config/connectDB");
@@ -10,7 +11,7 @@ const initRouter = require("./routes/index");
 
 connectDB();
 initMiddlewares(app);
-
+app.use(express.static(pathToSwaggerUi));
 app.use("/api/v1", initRouter);
 swaggerDocs(app, 8000);
 
